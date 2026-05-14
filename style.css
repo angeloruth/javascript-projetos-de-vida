@@ -1,69 +1,237 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+/* =============================================
+   PROJETOS DE VIDA — style.css
+   ============================================= */
 
-:root {
-    --cor-de-fundo: #1E1E1E;
-    --verde: #6FFF57;
-    --branco: #FFFFFF;
-    --botao-ativo: #3A375E;
-    --botao-inativo: rgba(58, 55, 94, 0.5);
-    --texto-fundo: rgba(58, 55, 94, 0.3);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--cor-de-fundo);
-    color: var(--branco);
-    font-family: 'Chakra Petch', sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #f4f4f2;
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 2rem 1rem;
 }
 
-
+/* ── CONTAINER PRINCIPAL ── */
 .conteudo-principal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
+/* ── TÍTULO ── */
 .titulo-principal {
-    text-align: left;
-    width: 100%;
-    font-size: 32px;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.25rem;
+  color: #1a1a1a;
 }
 
 .titulo-principal span {
-    color: var(--verde);
+  color: #888;
+  animation: piscar 1s step-end infinite;
 }
 
-.botao {
-    font-family: "Crakra Petch", sans-serif;
-    background-color: var(--botao-inativo);
-    color: var(--branco);
-    display: flex;
-    justify-content: center;
-    padding: 1em;
-    font-size: 18px;
-    align-items: center;
-    width: 100%;
-    border-bottom: 4px solid var(--botao-ativo);
-    border-left: 2px solid var(--botao-ativo);
-    border-right: 2px solid var(--botao-ativo);
-    border-top: none;
+@keyframes piscar {
+  50% { opacity: 0; }
 }
 
-.botao:first-child {
-    border-radius: 40px 40px 0 0;
+.subtitulo {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 2rem;
 }
 
-.botoes {
-    display: block;
+/* ── FORMULÁRIO ── */
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 1rem;
 }
 
-.ativo{
-background-color: var(--botao-ativo);
-border-bottom: 4px solid var(--verde);
+.formulario input[type="text"] {
+  grid-column: 1 / -1;
 }
 
+.formulario input,
+.formulario select {
+  padding: 0.65rem 0.875rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: #fff;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.2s;
+}
 
+.formulario input:focus,
+.formulario select:focus {
+  border-color: #1a1a1a;
+}
 
+#btn-adicionar {
+  grid-column: 1 / -1;
+  padding: 0.7rem;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+}
+
+#btn-adicionar:hover {
+  background: #333;
+}
+
+/* ── FILTROS E CONTADOR ── */
+.filtros {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.filtros select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  background: #fff;
+  color: #1a1a1a;
+  outline: none;
+}
+
+#contador {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 500;
+}
+
+/* ── LISTA DE PROJETOS ── */
+#lista-projetos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── CARD ── */
+.projeto-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.projeto-card:hover {
+  border-color: #ccc;
+}
+
+.projeto-card.concluido {
+  opacity: 0.5;
+}
+
+.projeto-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.projeto-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.projeto-titulo {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.projeto-card.concluido .projeto-titulo {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.projeto-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── BADGES ── */
+.badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.badge-saude      { background: #e8f5e9; color: #2e7d32; }
+.badge-carreira   { background: #ede7f6; color: #4527a0; }
+.badge-financeiro { background: #fff8e1; color: #f57f17; }
+.badge-estudos    { background: #e3f2fd; color: #1565c0; }
+.badge-pessoal    { background: #fce4ec; color: #880e4f; }
+.badge-viagem     { background: #e0f2f1; color: #00695c; }
+
+/* ── PRAZO ── */
+.prazo {
+  font-size: 0.78rem;
+  color: #999;
+}
+
+.vencido {
+  font-size: 0.78rem;
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* ── BOTÃO REMOVER ── */
+.btn-remover {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-remover:hover {
+  color: #c0392b;
+  background: #fce4ec;
+}
+
+/* ── RESPONSIVO ── */
+@media (max-width: 480px) {
+  .titulo-principal { font-size: 1.5rem; }
+  .formulario { grid-template-columns: 1fr; }
+  .formulario input[type="text"] { grid-column: 1; }
+  #btn-adicionar { grid-column: 1; }
+}
