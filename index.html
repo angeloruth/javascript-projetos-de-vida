@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus objetivos do ano</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus objetivos do ano</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <section class="conteudo-principal">
-        <h2 class="titulo-principal">Meus Objetivos do ano<span>_</span></h2>
-        <div class="botoes">
-            <button class="botao ativo">Cursos na Alura</button>
-            <button class="botao">Criar projetos em Javascript</button>
-            <button class="botao">Criar um portfolio</button>
-            <button class="botao">Atualizar meu currículo</button>
-        </div>
-    </section>
+  <section class="conteudo-principal">
+    <h2 class="titulo-principal">Meus Objetivos do ano<span>_</span></h2>
+
+    <div class="formulario">
+      <input type="text" id="input-titulo" placeholder="Nome do projeto..." />
+      <select id="input-categoria">
+        <option value="saude">Saúde</option>
+        <option value="carreira">Carreira</option>
+        <option value="financeiro">Financeiro</option>
+        <option value="estudos">Estudos</option>
+        <option value="pessoal">Pessoal</option>
+        <option value="viagem">Viagem</option>
+      </select>
+      <input type="date" id="input-prazo" />
+      <button id="btn-adicionar">+ Adicionar</button>
+    </div>
+
+    <div class="filtros">
+      <select id="filtro-categoria">
+        <option value="todos">Todos</option>
+        <option value="saude">Saúde</option>
+        <option value="carreira">Carreira</option>
+        <option value="financeiro">Financeiro</option>
+        <option value="estudos">Estudos</option>
+        <option value="pessoal">Pessoal</option>
+        <option value="viagem">Viagem</option>
+      </select>
+      <span id="contador"></span>
+    </div>
+
+    <div id="lista-projetos"></div>
+  </section>
+
+  <script src="main.js"></script>
 </body>
 </html>
